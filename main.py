@@ -121,7 +121,9 @@ if __name__ == "__main__":
     # Update PiHole dns.hosts and restart DNS.
     # subprocess.run didn't seem to like variables, so use .check_output
     # https://python-forum.io/thread-36920-post-155973.html#pid155973
-    subprocess.check_output("sudo pihole-FTL --config dns.hosts {}".format(hosts), shell=True)
+    subprocess.check_output(
+        "sudo pihole-FTL --config dns.hosts {}".format(hosts), shell=True
+    )
     command = ["sudo", "pihole", "reloaddns"]
     run_command(command)
 
