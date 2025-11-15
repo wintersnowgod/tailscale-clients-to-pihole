@@ -1,4 +1,6 @@
-import re, subprocess
+import re
+import subprocess
+
 
 # TODO Connect to Tailscale API / Webhook to listen for host/IP changes
 
@@ -20,7 +22,7 @@ def run_command(command: list[str]) -> str:
     return output_variable
 
 
-if __name__ == "__main__":
+def main():
     # Get Tailscale peer/client list.
     command = ["tailscale", "status"]
     peers = run_command(command)
@@ -131,3 +133,7 @@ if __name__ == "__main__":
     print("The PiHole dns.hosts list is now:")
     command = ["sudo", "pihole-FTL", "--config", "dns.hosts"]
     print(run_command(command))
+
+
+if __name__ == "__main__":
+    main()
