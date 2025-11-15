@@ -13,3 +13,5 @@
 #### TODO
 
 Build a listener for changes to Tailscale client hostname/IP.
+
+> Or simply https://discourse.pi-hole.net/t/how-to-show-tailscale-hostnames-in-pihole/80603
