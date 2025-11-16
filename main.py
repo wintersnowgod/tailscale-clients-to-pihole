@@ -33,7 +33,7 @@ def main():
     print(tailscale_dns_records)
 
     # Get PiHole dns.hosts list.
-    command = ["sudo", "pihole-FTL", "--config", "dns.hosts"]
+    command = ["docker", "exec", "pihole", "pihole-FTL", "--config", "dns.hosts"]
     pihole_output = run_command(command)
     print("\nRaw PiHole output:")
     print(pihole_output)
@@ -126,12 +126,12 @@ def main():
     subprocess.check_output(
         "sudo pihole-FTL --config dns.hosts {}".format(hosts), shell=True
     )
-    command = ["sudo", "pihole", "reloaddns"]
+    command = ["docker", "exec", "pihole", "pihole", "reloaddns"]
     run_command(command)
 
     print("\n" + "=" * 60)
     print("The PiHole dns.hosts list is now:")
-    command = ["sudo", "pihole-FTL", "--config", "dns.hosts"]
+    command = ["docker", "exec", "pihole", "pihole-FTL", "--config", "dns.hosts"]
     print(run_command(command))
 
 
