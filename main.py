@@ -124,7 +124,7 @@ def main():
     # subprocess.run didn't seem to like variables, so use .check_output
     # https://python-forum.io/thread-36920-post-155973.html#pid155973
     subprocess.check_output(
-        "sudo pihole-FTL --config dns.hosts {}".format(hosts), shell=True
+        "docker exec pihole pihole-FTL --config dns.hosts {}".format(hosts), shell=True
     )
     command = ["docker", "exec", "pihole", "pihole", "reloaddns"]
     run_command(command)
